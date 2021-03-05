@@ -1,0 +1,52 @@
+
+body {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.logo {
+  display: block;
+  font-size: 3rem;
+}
+
+.search-field {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  padding: .5rem;
+  border-radius: 2rem;
+  outline: none;
+}
+
+.search-field:focus {
+  box-shadow: 0px 0px 0px 2px Highlight;
+  box-shadow: 0px 0px 0px 2px -webkit-focus-ring-color;
+}
+
+.result-table {
+  width: 100%;
+  text-align: left;
+}
+
+.result-table tr td:first-child {
+  text-align: right;
+  width: 50%;
+}
+
+.grade-button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: none;
+  font: inherit;
+  color: #0000EE;
+  cursor: pointer;
+  outline: none;
+}
+
+.grade-button:hover {
+  text-decoration: underline;
+}
+
+.grade-button.current-grade {
+  text-decoration: underline;
+}

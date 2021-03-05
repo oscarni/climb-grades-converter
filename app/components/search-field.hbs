@@ -1,0 +1,125 @@
+<Input
+  @type="text"
+  @value={{this.inputValue}}
+  class="search-field"
+  {{on "input" this.resetGradeSystem}}
+/>
+<div>
+  {{#if this.hasManyGradeSystems}}
+    {{#if this.selectedGradeSystem}}
+      Selected
+      <button class="grade-button current-grade" type="button">
+        {{this.gradeSystem}}
+      </button>.
+    {{else}}
+      Recognizing
+      <button
+        class="grade-button current-grade"
+        type="button"
+        {{on "click" (fn this.setGradeSystem this.gradeSystem)}}
+      >
+        {{this.gradeSystem}}
+      </button>.
+    {{/if}}
+    Change to
+    {{#each this.selectableGradeSystems as |gradeSystem|}}
+      <button
+        class="grade-button"
+        type="button"
+        {{on "click" (fn this.setGradeSystem gradeSystem)}}
+      >
+        {{gradeSystem}}
+      </button>{{/each}}?
+  {{else}}
+    {{#if (and this.gradeSystem this.inputValue this.parsedGrade)}}
+      Recognizing
+      <button class="grade-button current-grade" type="button"s>
+        {{this.gradeSystem}}
+      </button>.
+    {{else}}
+
+    {{/if}}
+  {{/if}}
+
+  {{#if this.inputValue}}
+    <h3>
+      🧗‍♀️
+    </h3>
+    <table class="result-table">
+      <tbody>
+        <tr>
+          <td>
+            French:
+          </td>
+          <td>
+            {{this.frenchGrade}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            YDS:
+          </td>
+          <td>
+            {{this.ydsGrade}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            UIAA:
+          </td>
+          <td>
+            {{this.uiaaGrade}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Austrailian:
+          </td>
+          <td>
+            {{this.australianGrade}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            South african:
+          </td>
+          <td>
+            {{this.southAfricanGrade}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            British:
+          </td>
+          <td>
+            {{this.britishhGrade}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>
+      🪨
+    </h3>
+    <table class="result-table">
+      <tbody>
+        <tr>
+          <td>
+            Font:
+          </td>
+          <td>
+            {{this.fontGrade}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Hueco:
+          </td>
+          <td>
+            {{this.huecoGrade}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  {{/if}}
+</div>
