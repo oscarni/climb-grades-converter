@@ -91,4 +91,10 @@ export default class ApplicationController extends Controller {
   blurInputGrade() {
     document.getElementById('input-grade').blur();
   }
+
+  @action
+  clearInputGrade() {
+    this.inputGrade = '';
+    document.getElementById('input-grade').focus();
+  }
 }

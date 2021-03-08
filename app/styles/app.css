@@ -18,6 +18,18 @@ body {
   font-weight: normal;
 }
 
+.neutral-button {
+  display: inline;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+  line-height: 1rem;
+}
+
 .search-field-wrapper {
   --searchfield-height: 3.6rem;
   height: var(--searchfield-height);
@@ -25,6 +37,8 @@ body {
   font-size: 1.2rem;
   position: sticky;
   top: 0;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
 }
 
 .search-field-icon {
@@ -37,6 +51,17 @@ body {
   filter: brightness(0.4);
 }
 
+.search-field-clear {
+  position: absolute;
+  right: .25rem;
+  top: 0;
+  bottom: 0;
+  vertical-align: middle;
+  line-height: var(--searchfield-height);
+  padding: 0 1rem;
+  color: #666;
+}
+
 .search-field {
   height: var(--searchfield-height);
   margin: 0;
@@ -44,13 +69,9 @@ body {
   padding: 1rem;
   padding-left: 2.7rem;
   outline: none;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
-  border-left: 0;
-  border-right: 0;
+  border: 0;
   width: 100%;
   box-sizing: border-box;
-  background: #f1f1f1;
   background: white;
   border-radius: 0;
   -webkit-appearance: none;
@@ -67,16 +88,7 @@ body {
 }
 
 .grade-system-button {
-  display: inline;
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0;
-  font: inherit;
   color: #0000EE;
-  cursor: pointer;
-  outline: none;
-  line-height: 1rem;
   font-weight: bold;
   font-style: italic;
 }
