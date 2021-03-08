@@ -1,5 +1,94 @@
-{{page-title "ClimbGradesConverter"}}
-<span class="logo">🧗‍♀️</span>
-Convert any grade<br>
-<SearchField />
-{{outlet}}
+{{page-title "Climbing Grades Converter"}}
+<h1 class="logo">Climbing grade converter</h1>
+
+<div class="search-field-wrapper">
+  <div class="search-field-icon">🔍</div>
+  <Input
+    id="input-grade"
+    @type="text"
+    @value={{this.inputGrade}}
+    class="search-field"
+    placeholder="Any grade"
+    inputmode="search"
+    {{on "input" this.resetGradeSystem}}
+    @enter={{this.blurInputGrade}}
+    @escape-press={{this.blurInputGrade}}
+  />
+</div>
+
+<div class="suggestions-box">
+  {{#if this.hasManyGradeSystems}}
+    {{#if this.selectedGradeSystem}}
+      Identified as
+      <span class="current-grade-system">{{capitalize this.gradeSystem}}</span>.
+    {{else}}
+      Identified as
+      <button
+        class="grade-system-button current-grade-system"
+        type="button"
+        {{on "click" (fn this.setGradeSystem this.gradeSystem)}}
+      >
+        {{capitalize this.gradeSystem}}</button>.
+    {{/if}}
+    Did you mean
+    {{#each this.selectableGradeSystems as |gradeSystem|}}
+      <button
+        class="grade-system-button"
+        type="button"
+        {{on "click" (fn this.setGradeSystem gradeSystem)}}
+      >
+        {{capitalize gradeSystem}}</button>{{/each}}?
+  {{else}}
+    {{#if (and this.gradeSystem this.inputGrade this.parsedGrade)}}
+      Identified as
+      <span class="current-grade-system">{{capitalize this.gradeSystem}}</span>.
+    {{else}}
+     
+    {{/if}}
+  {{/if}}
+</div>
+
+<div class="grades-wrapper">
+  <div class="grade-sport">
+    <div class="grade-header">
+      🧗‍♀️ Sport
+    </div>
+    <div class="grade">
+      <span class="grade-label">French / Sport</span>
+      {{if this.frenchGrade this.frenchGrade " "}}
+    </div>
+    <div class="grade">
+      <span class="grade-label">YDS (Yosemite Decimal System)</span>
+      {{if this.ydsGrade this.ydsGrade " "}}
+    </div>
+    <div class="grade current-grade">
+      <span class="grade-label">UIAA</span>
+      {{if this.uiaaGrade this.uiaaGrade " "}}
+    </div>
+    <div class="grade">
+      <span class="grade-label">Australian (Ewbank)</span>
+      {{if this.australianGrade this.australianGrade " "}}
+    </div>
+    <div class="grade">
+      <span class="grade-label">South African</span>
+      {{if this.southAfricanGrade this.southAfricanGrade " "}}
+    </div>
+    <div class="grade">
+      <span class="grade-label">British</span>
+      {{if this.britishhGrade this.britishhGrade " "}}
+    </div>
+  </div>
+  <div class="grade-boulder">
+    <div class="grade-header">
+      🪨 Bouldering
+    </div>
+    <div class="grade">
+      <span class="grade-label">Font</span>
+      {{if this.fontGrade this.fontGrade " "}}
+    </div>
+    <div class="grade">
+      <span class="grade-label">Hueco (Vermin)</span>
+      {{if this.huecoGrade this.huecoGrade " "}}
+    </div>
+  </div>
+</div>

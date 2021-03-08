@@ -1,39 +1,30 @@
-import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
+import Controller from '@ember/controller';
 import { action } from '@ember/object';
-import ClimbingGrade from 'climbing-grade';
-import ClimbingGradeRecognizer from 'climbing-grade-recognizer';
+import { tracked } from '@glimmer/tracking';
+import { inject as service } from '@ember/service';
 
-export default class SearchFieldComponent extends Component {
+export default class ApplicationController extends Controller {
+  @service
+  gradeSearch;
+
   @tracked
-  inputValue = '';
+  inputGrade = '';
 
   @tracked
   selectedGradeSystem;
 
   get recognizedGradeSystems() {
-    try {
-      let recognized = ClimbingGradeRecognizer.recognize(
-        this.inputValue.trim()
-      );
-      // The following systems does not seem to be supported by the converter
-      recognized = recognized.filter(
-        (system) => system !== 'kurtyki' && system !== 'british'
-      );
-      return recognized;
-    } catch {
-      return [];
-    }
+    return this.gradeSearch.recognizedGradeSystems(this.inputGrade.trim());
   }
 
   get selectableGradeSystems() {
-    return this.recognizedGradeSystems?.filter(
+    return this.recognizedGradeSystems.filter(
       (system) => system !== this.gradeSystem
     );
   }
 
   get hasManyGradeSystems() {
-    return this.recognizedGradeSystems?.length > 1;
+    return this.recognizedGradeSystems.length > 1;
   }
 
   get gradeSystem() {
@@ -41,11 +32,10 @@ export default class SearchFieldComponent extends Component {
   }
 
   get parsedGrade() {
-    try {
-      return new ClimbingGrade(this.inputValue.trim(), this.gradeSystem);
-    } catch {
-      return null;
-    }
+    return this.gradeSearch.parseGrade(
+      this.inputGrade.trim(),
+      this.gradeSystem
+    );
   }
 
   get frenchGrade() {
@@ -86,8 +76,8 @@ export default class SearchFieldComponent extends Component {
   }
 
   @action
-  resetGradeSystem() {
-    if (!this.inputValue) {
+  resetGradeSystem(value) {
+    if (!value) {
       return;
     }
     if (
@@ -95,5 +85,10 @@ export default class SearchFieldComponent extends Component {
     ) {
       this.selectedGradeSystem = null;
     }
+  }
+
+  @action
+  blurInputGrade() {
+    document.getElementById('input-grade').blur();
   }
 }
