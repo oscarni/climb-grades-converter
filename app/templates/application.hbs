@@ -10,6 +10,10 @@
     class="search-field"
     placeholder="Any grade"
     inputmode="search"
+    autocomplete="off"
+    autocorrect="off"
+    spellcheck="false"
+    autocapitalize="off"
     {{on "input" this.resetGradeSystem}}
     @enter={{this.blurInputGrade}}
     @escape-press={{this.blurInputGrade}}
