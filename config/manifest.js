@@ -13,6 +13,7 @@ module.exports = function (/* environment, appConfig */) {
     display: 'standalone',
     background_color: '#dfdfdf',
     theme_color: '#dfdfdf',
+    orientation: 'portrait',
     icons: [
       {
         src: '/assets/icons/favicon.ico',
