@@ -151,15 +151,22 @@ body {
   font-size: .8rem;
   font-weight: 500;
   color: white;
-  display: inline-block;
   background: black;
-  padding: 3px 20px 2px 4px;
-  text-transform: uppercase;
-  white-space: nowrap;
-  max-width: 90%;
-  text-overflow:ellipsis;
+  display: inline-block;
+  max-width: 95%;
+}
+
+.grade-label span {
+  display: inline-block;
   overflow: hidden;
   box-sizing: border-box;
+  max-width: 100%;
+  margin-right: 20px;
+  text-overflow: ellipsis;
+  padding: 2px 2px 2px 4px;
+  vertical-align: bottom;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 @media only screen and (min-width: 600px) {
