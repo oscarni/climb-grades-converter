@@ -58,10 +58,6 @@ export default class ApplicationController extends Controller {
     return this.parsedGrade?.format('font');
   }
 
-  get britishhGrade() {
-    return this.parsedGrade?.format('british');
-  }
-
   get ydsGrade() {
     return this.parsedGrade?.format('yds');
   }
