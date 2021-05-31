@@ -1,14 +1,22 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
+import { storageFor } from 'ember-local-storage';
 
 export default class ApplicationController extends Controller {
   @service
   gradeSearch;
 
-  @tracked
-  inputGrade = '';
+  @storageFor('settings')
+  settings;
+
+  get inputGrade() {
+    return this.settings.get('gradeCache');
+  }
+
+  set inputGrade(value) {
+    this.settings.set('gradeCache', value);
+  }
 
   get recognizedGradeSystems() {
     return this.gradeSearch.recognizedGradeSystems(this.inputGrade.trim());
