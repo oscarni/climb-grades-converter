@@ -16,6 +16,16 @@
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/climb-grades-converter.css">
 
     {{content-for "head-footer"}}
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9DSVPDX3P2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-9DSVPDX3P2');
+    </script>
   </head>
   <body>
     {{content-for "body"}}
