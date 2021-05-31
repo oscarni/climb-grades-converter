@@ -14,7 +14,6 @@
     autocorrect="off"
     spellcheck="false"
     autocapitalize="off"
-    {{on "input" this.resetGradeSystem}}
     @enter={{this.blurInputGrade}}
     @escape-press={{this.blurInputGrade}}
   />
@@ -25,16 +24,11 @@
 
 <div class="suggestions-box">
   {{#if this.hasManyGradeSystems}}
-    {{#if this.selectedGradeSystem}}
-      Identified as
-      <span class="current-grade-system">{{capitalize this.gradeSystem}}</span>.
-    {{else}}
-      Identified as
-      <span
-        class="current-grade-system"
-      >
-        {{capitalize this.gradeSystem}}</span>.
-    {{/if}}
+    Identified as
+    <span
+      class="current-grade-system"
+    >
+      {{capitalize this.gradeSystem}}</span>.
     Did you mean
     {{#each this.selectableGradeSystems as |gradeSystem|}}
       <button

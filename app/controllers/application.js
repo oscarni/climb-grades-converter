@@ -10,9 +10,6 @@ export default class ApplicationController extends Controller {
   @tracked
   inputGrade = '';
 
-  @tracked
-  selectedGradeSystem;
-
   get recognizedGradeSystems() {
     return this.gradeSearch.recognizedGradeSystems(this.inputGrade.trim());
   }
@@ -28,7 +25,10 @@ export default class ApplicationController extends Controller {
   }
 
   get gradeSystem() {
-    return this.selectedGradeSystem ?? this.recognizedGradeSystems[0];
+    return (
+      this.gradeSearch.getPreferredGrade(this.recognizedGradeSystems) ??
+      this.recognizedGradeSystems[0]
+    );
   }
 
   get parsedGrade() {
@@ -68,19 +68,7 @@ export default class ApplicationController extends Controller {
 
   @action
   setGradeSystem(value) {
-    this.selectedGradeSystem = value;
-  }
-
-  @action
-  resetGradeSystem(value) {
-    if (!value) {
-      return;
-    }
-    if (
-      this.recognizedGradeSystems.includes(this.selectedGradeSystem) === false
-    ) {
-      this.selectedGradeSystem = null;
-    }
+    this.gradeSearch.storeGradeSystemSelection(value);
   }
 
   @action
