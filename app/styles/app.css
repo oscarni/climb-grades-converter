@@ -50,23 +50,40 @@ body {
 
 .search-field-icon {
   position: absolute;
-  left: 1rem;
+  left: .75rem;
   top: 0;
   bottom: 0;
   vertical-align: middle;
   line-height: var(--searchfield-height);
-  filter: brightness(0.4);
+  display: inline-flex;
+  box-sizing: border-box;
+  align-items: center;
+  fill: #333;
+}
+
+.search-field-icon svg {
+  display: block;
 }
 
 .search-field-clear {
   position: absolute;
-  right: .25rem;
+  right: 0;
   top: 0;
   bottom: 0;
   vertical-align: middle;
   line-height: var(--searchfield-height);
   padding: 0 1rem;
   color: #666;
+  fill: #666;
+  border-radius: 100%;
+}
+
+.search-field-clear:hover {
+  fill: #333;
+}
+
+.search-field-clear:active {
+  fill: #777;
 }
 
 .search-field {
