@@ -57,23 +57,23 @@
       Sport
     </div>
     <div class="grade">
-      <span class="grade-label"><span>French / Sport</span></span><br>
+      <span class="grade-label {{if (eq this.gradeSystem "french") "current"}}"><span>French / Sport</span></span><br>
       {{if this.frenchGrade this.frenchGrade "-"}}
     </div>
     <div class="grade">
-      <span class="grade-label"><span>YDS</span></span><br>
+      <span class="grade-label {{if (eq this.gradeSystem "yds") "current"}}"><span>YDS</span></span><br>
       {{if this.ydsGrade this.ydsGrade "-"}}
     </div>
     <div class="grade">
-      <span class="grade-label"><span>UIAA</span></span><br>
+      <span class="grade-label {{if (eq this.gradeSystem "uiaa") "current"}}"><span>UIAA</span></span><br>
       {{if this.uiaaGrade this.uiaaGrade "-"}}
     </div>
     <div class="grade">
-      <span class="grade-label"><span>Australian (Ewbank)</span></span><br>
+      <span class="grade-label {{if (eq this.gradeSystem "australian") "current"}}"><span>Australian (Ewbank)</span></span><br>
       {{if this.australianGrade this.australianGrade "-"}}
     </div>
     <div class="grade">
-      <span class="grade-label"><span>South African</span></span><br>
+      <span class="grade-label {{if (eq this.gradeSystem "south african") "current"}}"><span>South African</span></span><br>
       {{if this.southAfricanGrade this.southAfricanGrade "-"}}
     </div>
   </div>
@@ -82,11 +82,11 @@
       Bouldering
     </div>
     <div class="grade">
-      <span class="grade-label"><span>Font</span></span><br>
+      <span class="grade-label {{if (eq this.gradeSystem "font") "current"}}"><span>Font</span></span><br>
       {{if this.fontGrade this.fontGrade "-"}}
     </div>
     <div class="grade">
-      <span class="grade-label"><span>Hueco (Vermin)</span></span><br>
+      <span class="grade-label {{if (eq this.gradeSystem "hueco") "current"}}"><span>Hueco (Vermin)</span></span><br>
       {{if this.huecoGrade this.huecoGrade "-"}}
     </div>
   </div>

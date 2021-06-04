@@ -5,6 +5,7 @@ html {
 body {
   --background-color: #dfdfdf;
   --border-color: #000000;
+  --accent-color: #0047ee;
   padding: 0;
   margin: 0 auto;
   font-size: 1rem;
@@ -127,7 +128,7 @@ body {
 }
 
 .search-field-wrapper .search-field:focus {
-  border-color: #0047ee;
+  border-color: var(--accent-color);
 }
 
 .suggestions-box {
@@ -140,7 +141,7 @@ body {
 }
 
 .grade-system-button {
-  color: #0000EE;
+  color: var(--accent-color);
   font-weight: 700;
   font-style: italic;
 }
@@ -184,10 +185,6 @@ body {
   overflow: hidden;
 }
 
-.grade.current-grade {
-  color: #0000EE;
-}
-
 .grade-label {
   font-size: .8rem;
   font-weight: 500;
@@ -195,6 +192,10 @@ body {
   background: black;
   display: inline-block;
   max-width: 95%;
+}
+
+.grade-label.current {
+  background: var(--accent-color);
 }
 
 .grade-label span {
@@ -223,7 +224,7 @@ body {
 }
 
 .info-popup-modal {
-  background: #0047ee;
+  background: var(--accent-color);
   color: white;
   border: #333333 solid 0px;
   border-radius: 3px;
