@@ -5,7 +5,7 @@ module.exports = function (/* environment, appConfig */) {
   // supported properties
 
   return {
-    name: 'Climbing Grades Converter',
+    name: 'Climbing Grade Converter',
     short_name: 'Converter',
     description: 'Convert between any climbing grades',
     start_url: '/',
