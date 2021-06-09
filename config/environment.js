@@ -27,6 +27,11 @@ module.exports = function (environment) {
     },
   };
 
+  ENV['ember-cli-workbox'] = {
+    enabled: environment !== 'test',
+    autoRegister: false, // Running our own registration of service workers
+  };
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;

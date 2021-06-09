@@ -12,6 +12,6 @@ module('Integration | Component | info-popup-w-button', function(hooks) {
 
     await render(hbs`<InfoPopupWButton />`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.dom('.more-button-top-left').exists('info button is available');
   });
 });

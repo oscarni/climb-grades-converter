@@ -1,18 +1,15 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+let env = process.env.EMBER_ENV;
 
 module.exports = function (defaults) {
   let app = new EmberApp(defaults, {
-    'ember-service-worker': {
-      registrationStrategy: 'inline',
-      versionStrategy: 'every-build',
-    },
-    'esw-index': {
-      strategy: 'cache-first',
-    },
-    'asset-cache': {
-      include: ['assets/**/*', 'manifest.webmanifest'],
+    workbox: {
+      mode: env,
+      // globPatterns: [
+      //   '**/*.{json,css,js,png,svg,eot,ttf,woff,jpg,gif,ico,xml,html,txt,webmanifest}',
+      // ],
     },
   });
 
