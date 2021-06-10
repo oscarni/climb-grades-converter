@@ -338,7 +338,15 @@ body {
   .info-popup-modal {
     padding: 3rem 3rem;
     min-height: unset;
-    transform: translate(-50%, 2000px);
+    transform: translate(-50%, 0);
+    opacity: 0;
+    transition: opacity .25s, visibility 0s linear .25s;
+    visibility: hidden;
+  }
+  .info-popup-modal.open {
+    visibility: visible;
+    transition: opacity .25s, visibility 0s linear 0s;
+    opacity: 1;
   }
 }
 
