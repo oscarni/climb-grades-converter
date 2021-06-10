@@ -23,6 +23,14 @@ export function initialize(appInstance) {
     };
     wb.addEventListener('waiting', showSkipWaitingPrompt);
 
+    window.addEventListener('beforeunload', async () => {
+      if (appUpdaterService.hasUpdate) {
+        wb.messageSW({
+          type: 'SKIP_WAITING_WHEN_SOLO',
+        });
+      }
+    });
+
     wb.register();
   }
 }
