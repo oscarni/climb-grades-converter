@@ -5,7 +5,7 @@ html {
 body {
   --background-color: #dfdfdf;
   --border-color: #000000;
-  --accent-color: #0047ee;
+  --accent-color: rgba(16, 99, 255, 1);
   padding: 0;
   margin: 0 auto;
   font-size: 1rem;
@@ -41,6 +41,7 @@ body {
   cursor: pointer;
   line-height: 1rem;
   font-weight: 500;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .neutral-button svg {
@@ -169,6 +170,7 @@ body {
   border-radius: 0;
   -webkit-appearance: none;
   border: 3px solid var(--border-color);
+  -webkit-tap-highlight-color: transparent;
 }
 
 .search-field-wrapper .search-field:focus {
