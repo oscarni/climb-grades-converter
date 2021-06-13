@@ -41,7 +41,7 @@
     "ember-cli-sri": "^2.1.1",
     "ember-cli-string-helpers": "^5.0.0",
     "ember-cli-terser": "^4.0.1",
-    "ember-cli-workbox": "git://github.com/oscarni/ember-cli-workbox#478b727d32a17c6c6760a58fb90f1e7a4a704a11",
+    "ember-cli-workbox": "git://github.com/oscarni/ember-cli-workbox.git#ed5350e795e892c3bd0146f1353f4779cbb4ec40",
     "ember-export-application-global": "^2.0.1",
     "ember-fetch": "^8.0.2",
     "ember-load-initializers": "^2.1.2",

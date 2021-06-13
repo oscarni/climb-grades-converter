@@ -7,9 +7,16 @@ module.exports = function (defaults) {
   let app = new EmberApp(defaults, {
     workbox: {
       mode: env,
-      // globPatterns: [
-      //   '**/*.{json,css,js,png,svg,eot,ttf,woff,jpg,gif,ico,xml,html,txt,webmanifest}',
-      // ],
+      globPatterns: [
+        '**/*.{json,css,js,png,svg,eot,ttf,woff,jpg,gif,ico,xml,html,txt,webmanifest}',
+      ],
+      globIgnores: [
+        'assets/icons/icon-*',
+        'assets/icons/maskable_icon_*',
+        'assets/icons/apple-touch-icon-*',
+        'assets/icons/mstile-*',
+        'assets/icons/splashscreens/*',
+      ],
     },
   });
 
