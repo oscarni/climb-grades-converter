@@ -18,6 +18,9 @@ module.exports = function (defaults) {
         'assets/icons/splashscreens/*',
       ],
     },
+    'ember-cli-string-helpers': {
+      only: ['capitalize'],
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated
