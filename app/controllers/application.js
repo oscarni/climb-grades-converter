@@ -46,34 +46,6 @@ export default class ApplicationController extends Controller {
     );
   }
 
-  get frenchGrade() {
-    return this.parsedGrade?.format('french');
-  }
-
-  get southAfricanGrade() {
-    return this.parsedGrade?.format('south_african');
-  }
-
-  get uiaaGrade() {
-    return this.parsedGrade?.format('uiaa');
-  }
-
-  get huecoGrade() {
-    return this.parsedGrade?.format('hueco');
-  }
-
-  get fontGrade() {
-    return this.parsedGrade?.format('font');
-  }
-
-  get ydsGrade() {
-    return this.parsedGrade?.format('yds');
-  }
-
-  get australianGrade() {
-    return this.parsedGrade?.format('australian');
-  }
-
   @action
   setGradeSystem(value) {
     this.gradeSearch.storeGradeSystemSelection(value);

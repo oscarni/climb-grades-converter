@@ -1,11 +1,18 @@
 import Service from '@ember/service';
-import ClimbingGrade from 'climbing-grade';
 import ClimbingGradeRecognizer from 'climbing-grade-recognizer';
 import { storageFor } from 'ember-local-storage';
+import IRCRA from 'ircra';
 
 export default class GradeSearchService extends Service {
   @storageFor('selected-grade-systems')
   selectedGradeSystems;
+
+  ircra;
+
+  constructor() {
+    super(...arguments);
+    this.ircra = new IRCRA();
+  }
 
   recognizedGradeSystems(grade) {
     try {
@@ -14,6 +21,15 @@ export default class GradeSearchService extends Service {
       recognized = recognized.filter(
         (system) => system !== 'kurtyki' && system !== 'british'
       );
+      recognized = recognized.map((system) => {
+        if (system === 'french') {
+          system = 'sport';
+        }
+        if (system === 'hueco') {
+          system = 'vermin';
+        }
+        return system;
+      });
       return recognized;
     } catch {
       return [];
@@ -22,7 +38,7 @@ export default class GradeSearchService extends Service {
 
   parseGrade(grade, gradeSystem) {
     try {
-      return new ClimbingGrade(grade, gradeSystem);
+      return this.ircra.convert(gradeSystem, grade);
     } catch {
       return null;
     }
