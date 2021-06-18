@@ -58,7 +58,7 @@
     "eslint-plugin-ember": "^10.5.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.4.0",
-    "ircra": "git://github.com/oscarni/ircra.git",
+    "ircra": "git://github.com/oscarni/ircra.git#cb1cc801b000c2f3043e499f2594ca0f6be8ea3c",
     "loader.js": "^4.7.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.3.1",
