@@ -5,7 +5,7 @@ html {
 body {
   --background-color: #dfdfdf;
   --border-color: #000000;
-  --accent-color: rgba(16, 99, 255, 1);
+  --accent-color: #1063ff;
   padding: 0;
   margin: 0 auto;
   font-size: 1rem;
