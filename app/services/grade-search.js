@@ -1,11 +1,14 @@
 import Service from '@ember/service';
-import ClimbingGradeRecognizer from 'climbing-grade-recognizer';
 import { storageFor } from 'ember-local-storage';
 import IRCRA from 'ircra';
+import { inject as service } from '@ember/service';
 
 export default class GradeSearchService extends Service {
   @storageFor('selected-grade-systems')
   selectedGradeSystems;
+
+  @service
+  climbingGradeRecognizer;
 
   ircra;
 
@@ -15,25 +18,7 @@ export default class GradeSearchService extends Service {
   }
 
   recognizedGradeSystems(grade) {
-    try {
-      let recognized = ClimbingGradeRecognizer.recognize(grade);
-      // The following systems does not seem to be supported by the converter
-      recognized = recognized.filter(
-        (system) => system !== 'kurtyki' && system !== 'british'
-      );
-      recognized = recognized.map((system) => {
-        if (system === 'french') {
-          system = 'sport';
-        }
-        if (system === 'hueco') {
-          system = 'vermin';
-        }
-        return system;
-      });
-      return recognized;
-    } catch {
-      return [];
-    }
+    return this.climbingGradeRecognizer.recognize(grade);
   }
 
   parseGrade(grade, gradeSystem) {
@@ -44,17 +29,22 @@ export default class GradeSearchService extends Service {
     }
   }
 
-  storeGradeSystemSelection(grade) {
-    this.selectedGradeSystems.unshiftObject(grade);
+  storeGradeSystemSelection(gradeSystemValue) {
+    this.selectedGradeSystems.unshiftObject(gradeSystemValue);
     if (this.selectedGradeSystems.length > 10) {
       this.selectedGradeSystems.length = 10;
     }
   }
 
-  getPreferredGrade(gradesArray) {
-    if (!gradesArray) return;
-    return this.selectedGradeSystems.find((grade) =>
-      gradesArray.includes(grade)
+  getPreferredGradeSystem(gradeSystemObjectsArray) {
+    if (!gradeSystemObjectsArray.length) return;
+    const matchedSystem = this.selectedGradeSystems.find((gradeSystemValue) => {
+      return gradeSystemObjectsArray.filter(
+        (gradeSystem) => gradeSystem.value === gradeSystemValue
+      )[0];
+    });
+    return gradeSystemObjectsArray.find(
+      (gradeSystem) => gradeSystem.value === matchedSystem
     );
   }
 }

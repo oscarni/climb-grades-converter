@@ -17,6 +17,7 @@
     spellcheck="false"
     autocapitalize="off"
     name="grade-search"
+    list="grade-suggestion"
     @enter={{this.blurInputGrade}}
     @escape-press={{this.blurInputGrade}}
   />
@@ -33,7 +34,7 @@
     <span
       class="current-grade-system"
     >
-      {{capitalize this.gradeSystem}}</span>.
+      {{this.gradeSystem.name}}</span>.
     Did you mean
     {{#each this.selectableGradeSystems as |gradeSystem|}}
       <button
@@ -41,11 +42,11 @@
         type="button"
         {{on "click" (fn this.setGradeSystem gradeSystem)}}
       >
-        {{capitalize gradeSystem}}</button>{{/each}}?
+        {{gradeSystem.name}}</button>{{/each}}?
   {{else}}
-    {{#if (and this.gradeSystem this.inputGrade this.parsedGrade)}}
+    {{#if (and this.gradeSystem.name this.inputGrade this.parsedGradeMap)}}
       Identified as
-      <span class="current-grade-system">{{capitalize this.gradeSystem}}</span>.
+      <span class="current-grade-system">{{this.gradeSystem.name}}</span>.
     {{else}}
      
     {{/if}}
@@ -59,36 +60,36 @@
     </div>
 
     <GradeDisplay
-      @currentGradeMap={{this.parsedGrade}}
-      @currentGradeSystem={{this.gradeSystem}}
+      @currentGradeMap={{this.parsedGradeMap}}
+      @currentGradeSystem={{this.gradeSystem.value}}
       @gradeSystem="sport"
       @gradeSystemDisplayName="Sport / French"
     />
 
     <GradeDisplay
-      @currentGradeMap={{this.parsedGrade}}
-      @currentGradeSystem={{this.gradeSystem}}
+      @currentGradeMap={{this.parsedGradeMap}}
+      @currentGradeSystem={{this.gradeSystem.value}}
       @gradeSystem="yds"
       @gradeSystemDisplayName="YDS"
     />
 
     <GradeDisplay
-      @currentGradeMap={{this.parsedGrade}}
-      @currentGradeSystem={{this.gradeSystem}}
+      @currentGradeMap={{this.parsedGradeMap}}
+      @currentGradeSystem={{this.gradeSystem.value}}
       @gradeSystem="swedish"
       @gradeSystemDisplayName="Swedish"
     />
 
     <GradeDisplay
-      @currentGradeMap={{this.parsedGrade}}
-      @currentGradeSystem={{this.gradeSystem}}
+      @currentGradeMap={{this.parsedGradeMap}}
+      @currentGradeSystem={{this.gradeSystem.value}}
       @gradeSystem="uiaa"
       @gradeSystemDisplayName="UIAA"
     />
 
     <GradeDisplay
-      @currentGradeMap={{this.parsedGrade}}
-      @currentGradeSystem={{this.gradeSystem}}
+      @currentGradeMap={{this.parsedGradeMap}}
+      @currentGradeSystem={{this.gradeSystem.value}}
       @gradeSystem="ewbank"
       @gradeSystemDisplayName="Ewbank / Australian"
     />
@@ -100,15 +101,15 @@
     </div>
 
     <GradeDisplay
-      @currentGradeMap={{this.parsedGrade}}
-      @currentGradeSystem={{this.gradeSystem}}
+      @currentGradeMap={{this.parsedGradeMap}}
+      @currentGradeSystem={{this.gradeSystem.value}}
       @gradeSystem="font"
       @gradeSystemDisplayName="Font"
     />
 
     <GradeDisplay
-      @currentGradeMap={{this.parsedGrade}}
-      @currentGradeSystem={{this.gradeSystem}}
+      @currentGradeMap={{this.parsedGradeMap}}
+      @currentGradeSystem={{this.gradeSystem.value}}
       @gradeSystem="vermin"
       @gradeSystemDisplayName="Hueco / Vermin"
     />

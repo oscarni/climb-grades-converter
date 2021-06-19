@@ -24,7 +24,7 @@ export default class ApplicationController extends Controller {
 
   get selectableGradeSystems() {
     return this.recognizedGradeSystems.filter(
-      (system) => system !== this.gradeSystem
+      (system) => system.value !== this.gradeSystem.value
     );
   }
 
@@ -34,21 +34,21 @@ export default class ApplicationController extends Controller {
 
   get gradeSystem() {
     return (
-      this.gradeSearch.getPreferredGrade(this.recognizedGradeSystems) ??
+      this.gradeSearch.getPreferredGradeSystem(this.recognizedGradeSystems) ??
       this.recognizedGradeSystems[0]
     );
   }
 
-  get parsedGrade() {
+  get parsedGradeMap() {
     return this.gradeSearch.parseGrade(
       this.inputGrade.trim(),
-      this.gradeSystem
+      this.gradeSystem?.value
     );
   }
 
   @action
-  setGradeSystem(value) {
-    this.gradeSearch.storeGradeSystemSelection(value);
+  setGradeSystem(gradeSystem) {
+    this.gradeSearch.storeGradeSystemSelection(gradeSystem.value);
   }
 
   @action
