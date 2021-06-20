@@ -29,27 +29,16 @@
 </div>
 
 <div class="suggestions-box">
-  {{#if this.hasManyGradeSystems}}
-    Identified as
-    <span
-      class="current-grade-system"
-    >
-      {{this.gradeSystem.name}}</span>.
-    Did you mean
-    {{#each this.selectableGradeSystems as |gradeSystem|}}
+  {{#if (and this.gradeSystem.name this.inputGrade this.parsedGradeMap)}}
+    Identified as:
+    {{#each this.recognizedGradeSystems as |gradeSystem|}}
       <button
-        class="neutral-button grade-system-button"
+        class="neutral-button grade-system-button {{if (eq this.gradeSystem.value gradeSystem.value) "current-grade-system"}}"
         type="button"
         {{on "click" (fn this.setGradeSystem gradeSystem)}}
-      >
-        {{gradeSystem.name}}</button>{{/each}}?
+      >{{gradeSystem.name}}</button>{{/each}}
   {{else}}
-    {{#if (and this.gradeSystem.name this.inputGrade this.parsedGradeMap)}}
-      Identified as
-      <span class="current-grade-system">{{this.gradeSystem.name}}</span>.
-    {{else}}
-     
-    {{/if}}
+   
   {{/if}}
 </div>
 

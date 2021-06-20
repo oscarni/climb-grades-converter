@@ -181,25 +181,34 @@ body {
   font-size: .8rem;
   font-weight: 500;
   padding: .55rem 0;
-  line-height: 1rem;
+  line-height: 1.9rem;
   margin: 0 1rem;
   color: var(--border-color);
 }
 
 .grade-system-button {
-  color: var(--accent-color);
-  font-weight: 700;
-  font-style: italic;
+  font-weight: 500;
+  border: 1px solid black;
+  border-radius: 3rem;
+  padding: .375rem .75rem;
+  box-sizing: border-box;
+  user-select: none;
 }
 
 .grade-system-button:hover {
-  text-decoration: underline;
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
 }
 
 .current-grade-system {
-  font-weight: 700;
-  color: black;
-  font-style: normal;
+  font-weight: 500;
+  background-color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  color: white;
+}
+
+.current-grade-system:hover {
+  color: white;
 }
 
 .grades-wrapper {
