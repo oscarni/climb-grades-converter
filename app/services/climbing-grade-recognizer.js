@@ -21,12 +21,12 @@ export default class ClimbingGradeRecognizerService extends Service {
     {
       name: 'YDS',
       value: 'yds',
-      regex: /^5\.(\d{1}|1[0-5][abcd]?)$/gim,
+      regex: /^5\.(\d{0,1}|1[0-5][abcd]?)$/gim,
     },
     {
       name: 'Sport',
       value: 'sport',
-      regex: /^(2|3|[4-9]([abc]\+?))$/gim,
+      regex: /^(2|3|[4-5][abc]|[6-9][abc]\+?)$/gim,
     },
     {
       name: 'UIAA',
@@ -36,7 +36,7 @@ export default class ClimbingGradeRecognizerService extends Service {
     {
       name: 'Ewbank',
       value: 'ewbank',
-      regex: /^([1-9]|2[1-9]|3[1-9])$/gim,
+      regex: /^([1-9]|1[0-9]|2[0-9]|3[0-9])$/gim,
     },
     {
       name: 'Swedish',
@@ -46,7 +46,7 @@ export default class ClimbingGradeRecognizerService extends Service {
     {
       name: 'Hueco',
       value: 'vermin',
-      regex: /^V(B|0[-+]?|[1-9]|1[0-7])$/gim,
+      regex: /^V(B|0[-+]?|[1-9]|1[0-7])?$/gim,
     },
     {
       name: 'Font',
