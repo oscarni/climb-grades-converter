@@ -22,10 +22,6 @@ export default class ApplicationController extends Controller {
     return this.gradeSearch.recognizedGradeSystems(this.inputGrade.trim());
   }
 
-  get hasManyGradeSystems() {
-    return this.recognizedGradeSystems.length > 1;
-  }
-
   get gradeSystem() {
     return (
       this.gradeSearch.getPreferredGradeSystem(this.recognizedGradeSystems) ??
