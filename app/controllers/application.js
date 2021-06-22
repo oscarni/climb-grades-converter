@@ -51,4 +51,14 @@ export default class ApplicationController extends Controller {
     this.inputGrade = '';
     document.getElementById('input-grade').focus();
   }
+
+  @action
+  setGradeAndSystem(grade, gradeSystemValue) {
+    if (
+      gradeSystemValue !== this.gradeSearch.selectedGradeSystems.firstObject
+    ) {
+      this.setGradeSystem(gradeSystemValue);
+    }
+    this.inputGrade = grade;
+  }
 }

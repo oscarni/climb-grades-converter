@@ -12,6 +12,6 @@ module('Integration | Component | grade-display', function (hooks) {
 
     await render(hbs`<GradeDisplay />`);
 
-    assert.equal(this.element.textContent.trim(), '-');
+    assert.ok(this.element.textContent.trim().includes('–'), 'has no grade');
   });
 });

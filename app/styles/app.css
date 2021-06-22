@@ -1,5 +1,7 @@
 html {
   -webkit-text-size-adjust: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -15,6 +17,8 @@ body {
   background: var(--background-color);
   position: relative;
   line-height: 1.15;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .logo {
@@ -238,7 +242,6 @@ body {
   font-size: 2rem;
   line-height: 1;
   margin-bottom: .25rem;
-  overflow: hidden;
 }
 
 .grade-label {
@@ -248,6 +251,7 @@ body {
   background: black;
   display: inline-block;
   max-width: 95%;
+  user-select: none;
 }
 
 .grade-label.current {
@@ -265,6 +269,53 @@ body {
   vertical-align: bottom;
   text-transform: uppercase;
   white-space: nowrap;
+}
+
+.grade-select {
+  appearance: none;
+  background-color: transparent;
+  padding: 0 1.5rem 0 0;
+  max-width: 100%;
+  width: auto;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  outline: none;
+  border-radius: .25rem;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+  margin-left: -2px;
+}
+
+.grade-select::-ms-expand {
+  display: none;
+}
+
+.grade-select-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.grade-select:hover {
+  background: rgba(0,0,0,0.1);
+}
+
+.grade-select:focus-visible {
+  border-color: var(--accent-color);
+}
+
+.grade-select-wrapper::after {
+  content: "";
+  width: 0.7rem;
+  height: 0.375rem;
+  background-color: black;
+  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  position:absolute;
+  top: 43%;
+  right: .6rem;
+  pointer-events: none;
 }
 
 .info-popup:before {

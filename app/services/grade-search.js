@@ -47,4 +47,12 @@ export default class GradeSearchService extends Service {
       (gradeSystem) => gradeSystem.value === matchedSystem
     );
   }
+
+  getGradesBySystem(gradeSystemValue) {
+    try {
+      return this.ircra.get(gradeSystemValue);
+    } catch {
+      return [];
+    }
+  }
 }
