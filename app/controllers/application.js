@@ -2,6 +2,7 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { storageFor } from 'ember-local-storage';
+import isIOS from 'climb-grades-converter/utils/is-ios';
 
 export default class ApplicationController extends Controller {
   @service
@@ -34,6 +35,17 @@ export default class ApplicationController extends Controller {
       this.inputGrade.trim(),
       this.gradeSystem?.value
     );
+  }
+
+  get gradeSystemArray() {
+    if (!this.gradeSystem) {
+      return [];
+    }
+    return this.gradeSearch.getGradesBySystem(this.gradeSystem.value);
+  }
+
+  get enableDatalist() {
+    return isIOS();
   }
 
   @action

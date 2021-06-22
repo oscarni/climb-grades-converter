@@ -151,6 +151,7 @@ body {
   color: #666;
   fill: #666;
   border-radius: 100%;
+  z-index: 1;
 }
 
 .search-field-clear:hover {
@@ -171,11 +172,23 @@ body {
   outline: none;
   width: 100%;
   box-sizing: border-box;
-  background-color: rgba(255, 255, 255, 0.533);
+  background-color: white;
   border-radius: 0;
   -webkit-appearance: none;
   border: 3px solid var(--border-color);
   -webkit-tap-highlight-color: transparent;
+}
+
+/* hack to hide -webkit-list-button */
+.hide-webkit-list-button:after {
+  content: "";
+  width: 3rem;
+  background-color: white;
+  position:absolute;
+  top: 3px;
+  right: 3px;
+  bottom: 3px;
+  pointer-events: none;
 }
 
 .search-field-wrapper .search-field:focus {
@@ -287,6 +300,7 @@ body {
   border: 2px solid transparent;
   box-sizing: border-box;
   margin-left: -2px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .grade-select::-ms-expand {
@@ -302,7 +316,7 @@ body {
   background: rgba(0,0,0,0.1);
 }
 
-.grade-select:focus-visible {
+.grade-select:focus {
   border-color: var(--accent-color);
 }
 
