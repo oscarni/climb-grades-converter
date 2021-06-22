@@ -37,8 +37,8 @@ export default class ApplicationController extends Controller {
   }
 
   @action
-  setGradeSystem(gradeSystem) {
-    this.gradeSearch.storeGradeSystemSelection(gradeSystem.value);
+  setGradeSystem(gradeSystemValue) {
+    this.gradeSearch.storeGradeSystemSelection(gradeSystemValue);
   }
 
   @action
