@@ -3,6 +3,7 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { storageFor } from 'ember-local-storage';
 import isIOS from 'climb-grades-converter/utils/is-ios';
+import { later } from '@ember/runloop';
 
 export default class ApplicationController extends Controller {
   @service
@@ -46,6 +47,28 @@ export default class ApplicationController extends Controller {
 
   get enableDatalist() {
     return isIOS();
+  }
+
+  @action
+  updateSegmentedButtonBg(element) {
+    if (element.classList.contains('current-grade-system')) {
+      this.setSegmentedBg(element);
+      later(() => {
+        element.parentElement.classList.remove('disable-transition');
+      }, 20);
+    }
+  }
+
+  @action
+  setSegmentedBg(element) {
+    element.parentElement.style.setProperty(
+      '--segmented-bg-translatex',
+      `${element.offsetLeft}px`
+    );
+    element.parentElement.style.setProperty(
+      '--segmented-bg-width',
+      `${element.offsetWidth}px`
+    );
   }
 
   @action

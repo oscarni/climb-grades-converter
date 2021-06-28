@@ -38,12 +38,15 @@
 <div class="suggestions-box">
   {{#if (and this.gradeSystem.name this.inputGrade this.parsedGradeMap)}}
     Identified as:
-    {{#each this.recognizedGradeSystems as |gradeSystem|}}
-      <button
-        class="neutral-button grade-system-button {{if (eq this.gradeSystem.value gradeSystem.value) "current-grade-system"}}"
-        type="button"
-        {{on "click" (fn this.setGradeSystem gradeSystem.value)}}
-      >{{gradeSystem.name}}</button>{{/each}}
+    <div class="segmented-wrapper disable-transition">
+      {{#each this.recognizedGradeSystems as |gradeSystem|}}<button
+          class="neutral-button grade-system-button {{if (eq this.gradeSystem.value gradeSystem.value) "current-grade-system"}}"
+          type="button"
+          {{on "click" (fn this.setGradeSystem gradeSystem.value)}}
+          {{did-insert this.updateSegmentedButtonBg}}
+          {{did-update this.updateSegmentedButtonBg (eq this.gradeSystem.value gradeSystem.value)}}
+        >{{gradeSystem.name}}</button>{{/each}}
+    </div>
   {{else}}
    
   {{/if}}
