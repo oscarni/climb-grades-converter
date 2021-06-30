@@ -36,7 +36,7 @@ export default class ClimbingGradeRecognizerService extends Service {
     {
       name: 'Ewbank',
       value: 'ewbank',
-      regex: /^([1-9]|1[0-9]|2[0-9]|3[0-9])$/gim,
+      regex: /^([4-9]|1[0-9]|2[0-9]|3[0-9])$/gim,
     },
     {
       name: 'Swedish',
@@ -51,7 +51,7 @@ export default class ClimbingGradeRecognizerService extends Service {
     {
       name: 'Font',
       value: 'font',
-      regex: /^(2|3|4[+]?|5[+]?|[6-8][abc]\+?|9a)$/gim,
+      regex: /^(<2|2|3|4[+]?|5[+]?|[6-8][abc]\+?|9a)$/gim,
     },
   ];
 }
