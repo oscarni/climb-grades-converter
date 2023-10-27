@@ -181,6 +181,7 @@ body {
   border-radius: 0;
   /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-appearance: none;
+  appearance: none;
   border: 3px solid var(--border-color);
   -webkit-tap-highlight-color: transparent;
 }

@@ -11,7 +11,7 @@ export default class GradeDisplayComponent extends Component {
   get currentGrade() {
     try {
       return Object.values(
-        this.args.currentGradeMap?.to(this.args.gradeSystem)
+        this.args.currentGradeMap?.to(this.args.gradeSystem),
       )[0];
     } catch {
       return null;
@@ -29,7 +29,7 @@ export default class GradeDisplayComponent extends Component {
 
   get selectWidth() {
     let element = document.getElementById(
-      `grade-select-${this.args.gradeSystem}`
+      `grade-select-${this.args.gradeSystem}`,
     );
     if (this.currentGrade && this.gradesArray.length && element) {
       // make sure to trigger on currentGrade and gradesArray change

@@ -40,11 +40,11 @@ export default class GradeSearchService extends Service {
     if (!gradeSystemObjectsArray.length) return;
     const matchedSystem = this.selectedGradeSystems.find((gradeSystemValue) => {
       return gradeSystemObjectsArray.filter(
-        (gradeSystem) => gradeSystem.value === gradeSystemValue
+        (gradeSystem) => gradeSystem.value === gradeSystemValue,
       )[0];
     });
     return gradeSystemObjectsArray.find(
-      (gradeSystem) => gradeSystem.value === matchedSystem
+      (gradeSystem) => gradeSystem.value === matchedSystem,
     );
   }
 
