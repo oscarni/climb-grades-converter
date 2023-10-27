@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
-
+import { htmlSafe } from '@ember/template';
 export default class GradeDisplayComponent extends Component {
   @service
   gradeSearch;
@@ -33,9 +33,9 @@ export default class GradeDisplayComponent extends Component {
     );
     if (this.currentGrade && this.gradesArray.length && element) {
       // make sure to trigger on currentGrade and gradesArray change
-      return this.getSelectWidth(element);
+      return htmlSafe(`width: ${this.getSelectWidth(element)}`);
     } else if (element) {
-      return this.getSelectWidth(element);
+      return htmlSafe(`width: ${this.getSelectWidth(element)}`);
     }
     return null;
   }
