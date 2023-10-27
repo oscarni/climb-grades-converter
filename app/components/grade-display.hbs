@@ -1,7 +1,7 @@
 <div class="grade">
   <span class="grade-label {{if (eq @currentGradeSystem @gradeSystem) "current"}}"><span>{{@gradeSystemDisplayName}}</span></span><br>
   <div class="grade-select-wrapper">
-  <select id="grade-select-{{@gradeSystem}}" style={{if this.selectWidth (concat "width: " this.selectWidth)}} class="grade-select" {{on "change" this.setGrade}} {{did-insert this.setSize}}>
+  <select id="grade-select-{{@gradeSystem}}" style={{this.selectWidth}} class="grade-select" {{on "change" this.setGrade}} {{did-insert this.setSize}}>
     {{#unless this.currentGrade}}
       <option selected>–</option>
     {{/unless}}

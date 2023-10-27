@@ -34,7 +34,7 @@ export default class ApplicationController extends Controller {
   get parsedGradeMap() {
     return this.gradeSearch.parseGrade(
       this.inputGrade.trim(),
-      this.gradeSystem?.value
+      this.gradeSystem?.value,
     );
   }
 
@@ -63,11 +63,11 @@ export default class ApplicationController extends Controller {
   setSegmentedBg(element) {
     element.parentElement.style.setProperty(
       '--segmented-bg-translatex',
-      `${element.offsetLeft}px`
+      `${element.offsetLeft}px`,
     );
     element.parentElement.style.setProperty(
       '--segmented-bg-width',
-      `${element.offsetWidth}px`
+      `${element.offsetWidth}px`,
     );
   }
 

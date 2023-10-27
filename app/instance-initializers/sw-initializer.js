@@ -1,7 +1,11 @@
 import { Workbox } from 'workbox-window';
+import config from 'climb-grades-converter/config/environment';
 
 export function initialize(appInstance) {
   if ('serviceWorker' in navigator) {
+    if (!config['ember-cli-workbox'].enabled) {
+      return;
+    }
     const wb = new Workbox('/sw.js');
     const appUpdaterService = appInstance.lookup('service:app-updater');
 
