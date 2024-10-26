@@ -50,7 +50,9 @@ export default class GradeDisplayComponent extends Component {
     tempSelect.appendChild(tempOption);
     element.after(tempSelect);
 
-    const tempSelectWidth = tempSelect.getBoundingClientRect().width;
+    const additionalPadding = 2;
+    const tempSelectWidth =
+      tempSelect.getBoundingClientRect().width + additionalPadding;
     tempSelect.remove();
     return `${tempSelectWidth}px`;
   }
