@@ -25,9 +25,9 @@
     "test:ember": "ember test"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.0",
-    "@babel/eslint-parser": "^7.23.10",
-    "@babel/plugin-proposal-decorators": "^7.24.0",
+    "@babel/core": "^7.24.4",
+    "@babel/eslint-parser": "^7.24.1",
+    "@babel/plugin-proposal-decorators": "^7.24.1",
     "@ember/optional-features": "^2.1.0",
     "@ember/render-modifiers": "^2.0.4",
     "@ember/string": "^3.1.1",
@@ -38,7 +38,7 @@
     "climbing-grade-recognizer": "^0.9.0",
     "concurrently": "^8.2.2",
     "ember-auto-import": "^2.7.2",
-    "ember-cli": "~5.7.0",
+    "ember-cli": "~5.8.1",
     "ember-cli-app-version": "^6.0.1",
     "ember-cli-autoprefixer": "^2.0.0",
     "ember-cli-babel": "^8.2.0",
@@ -53,10 +53,10 @@
     "ember-load-initializers": "^2.1.2",
     "ember-local-storage": "^2.0.6",
     "ember-modifier": "^4.1.0",
-    "ember-page-title": "^8.2.2",
+    "ember-page-title": "^8.2.3",
     "ember-qunit": "^8.0.2",
     "ember-resolver": "^11.0.1",
-    "ember-source": "^5.7.0",
+    "ember-source": "^5.8.0",
     "ember-template-lint": "^5.13.0",
     "ember-truth-helpers": "^4.0.3",
     "ember-web-app": "^5.0.1",
@@ -75,7 +75,7 @@
     "stylelint-config-standard": "^34.0.0",
     "stylelint-prettier": "^4.1.0",
     "tracked-built-ins": "^3.3.0",
-    "webpack": "^5.90.3",
+    "webpack": "^5.91.0",
     "workbox-window": "^7.0.0"
   },
   "engines": {
