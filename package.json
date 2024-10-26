@@ -76,7 +76,7 @@
     "stylelint-prettier": "^4.1.0",
     "tracked-built-ins": "^3.3.0",
     "webpack": "^5.93.0",
-    "workbox-window": "^7.0.0"
+    "workbox-window": "^7.1.0"
   },
   "engines": {
     "node": ">= 18"
