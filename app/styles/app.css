@@ -122,6 +122,7 @@ body {
 
 .search-field-wrapper {
   --searchfield-height: 3.5rem;
+  --searchfield-radius: 0.75rem;
 
   height: var(--searchfield-height);
   position: relative;
@@ -180,7 +181,7 @@ body {
   width: 100%;
   box-sizing: border-box;
   background-color: white;
-  border-radius: 0.75rem;
+  border-radius: var(--searchfield-radius);
   /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-appearance: none;
   appearance: none;
@@ -198,6 +199,7 @@ body {
   right: 3px;
   bottom: 3px;
   pointer-events: none;
+  border-radius: var(--searchfield-radius);
 }
 
 .search-field-wrapper .search-field:focus {
